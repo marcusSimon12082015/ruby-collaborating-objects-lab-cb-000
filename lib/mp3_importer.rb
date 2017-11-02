@@ -8,9 +8,6 @@ class MP3Importer
   def files
     @files
   end
-  def size
-    @files.size
-  end
   def import
     @files = Dir.entires(@path).select{|file| file.extname == ".mp3"}
   end
