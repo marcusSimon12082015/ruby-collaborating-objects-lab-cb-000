@@ -21,11 +21,14 @@ class Artist
     @@all
   end
   def find_or_create_by_name(name)
+    artist_result = nil
     if @@all.index(name).nil?
       artist = Artist.new(name)
       @@all << artist
+      artist_result = artist
     else
-      @@all[@@all.index(name)]
+      artist_result = @@all[@@all.index(name)]
     end
+    artist_result
   end
 end
