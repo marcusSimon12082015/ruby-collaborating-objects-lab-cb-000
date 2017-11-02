@@ -22,12 +22,13 @@ class Artist
   end
   def self.find_or_create_by_name(name)
     artist_result = nil
-    if @@all.index(name).nil?
+    find_index_result = @@all.find_index{|artist| artist.name == name}
+    if find_index_result.nil?
       artist = Artist.new(name)
       @@all << artist
       artist_result = artist
     else
-      artist_result = @@all[@@all.index(name)]
+      artist_result = @@all[find_index_result]
     end
     artist_result
   end
