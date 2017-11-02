@@ -7,6 +7,8 @@ class MP3Importer
     @files = Dir.entries(@path).select{|file| file.include?(".mp3")}
   end
   def import
-    @@all = @files.uniq
+    @files.each{ |song|
+      puts "#{song}"
+    }
   end
 end
